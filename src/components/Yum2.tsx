@@ -2,13 +2,15 @@ import { FunctionComponent } from "react";
 import styles from "./Yum2.module.css";
 import { SearchInput } from "./SearchInput/SearchInput";
 import { RecipeHeader } from "./RecipeHeader/RecipeHeader";
+import { RecipeInfo } from "./RecipeInfo/RecipeInfo";
 
 const Yum2: FunctionComponent = () => {
   return (
     <div className={styles.yum2}>
       <SearchInput />
       <RecipeHeader />
-      
+      <RecipeInfo />
+{/* 
       <div className={styles.toastWrapper}>
         <div className={styles.toast}>
           <div className={styles.frameContainer}>
@@ -31,7 +33,7 @@ const Yum2: FunctionComponent = () => {
             such as saffron, rabbit, and snails, which were common in the area.
           </div>
         </div>
-      </div>
+      </div> */}
       <div className={styles.basicCard}>
         <div className={styles.frameDiv}>
           <div className={styles.hiNeoParent}>

@@ -5,7 +5,6 @@ import searchIcon from "../../assets/general-search.svg";
 import clearIcon from "../../assets/general-delete1.svg";
 import errorIcon from "../../assets/general-alert1.svg";
 
-
 export const SearchInput: FC = () => {
   const placeholderText = 'Search cuisine';
   const errorText = 'Something went wrong' && '';
@@ -48,6 +47,7 @@ export const SearchInput: FC = () => {
           </div>
         ) : null}
       </div>
+
       {hasError ? (
         <div className={styles.errorContainer}>
           <img className={styles.errorIcon} src={errorIcon} />

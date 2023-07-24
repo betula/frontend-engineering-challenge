@@ -11,9 +11,12 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  overflow: hidden;
 }
 .title {
   font-weight: 500;
+  overflow: hidden;
+  word-wrap: break-word;
 }
 .countryFlag {
   height: 16px;
@@ -41,6 +44,7 @@
 }
 
 .addRecipeButton {
+  white-space: nowrap;
   border-radius: 4px;
   background-color: #171f2f;
   padding: 0 7px;
