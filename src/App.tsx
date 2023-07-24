@@ -1,11 +1,8 @@
-import Yum2 from './components/Yum2';
+import { FC } from "react";
+import { Page } from "./components/Page";
 
-function App() {
+export const App: FC = () => {
   return (
-    <>
-      <Yum2 />
-    </>
+    <Page />
   )
-}
-
-export default App
+};

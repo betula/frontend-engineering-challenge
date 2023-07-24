@@ -8,7 +8,7 @@ import iconMedium from '../../assets/brand-medium.svg';
 
 export const RecipeHeader: FC = () => {
   const countryCode = 'es';
-  const title = 'Spanish Paellasdlkfsldflksdjfklsdjfklsdjflkdsjfklsdjlkjskd jflksdjfk';
+  const title = 'Spanish Paella';
 
   const handleTwitterButton = () => {}
   const handleTelegramButton = () => {}
