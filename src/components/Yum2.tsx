@@ -1,10 +1,12 @@
 import { FunctionComponent } from "react";
 import styles from "./Yum2.module.css";
+import { SearchInput } from "./SearchInput/SearchInput";
 
 const Yum2: FunctionComponent = () => {
   return (
     <div className={styles.yum2}>
-      <div className={styles.textInput}>
+      <SearchInput />
+      {/* <div className={styles.textInput}>
         <div className={styles.labelParent}>
           <div className={styles.label}>Label</div>
           <div className={styles.required}>*</div>
@@ -40,7 +42,7 @@ const Yum2: FunctionComponent = () => {
             Tristique senectus et netus et
           </div>
         </div>
-      </div>
+      </div> */}
       <div className={styles.frameGroup}>
         <div className={styles.generalSearchParent}>
           <img className={styles.spain1Icon} alt="" src="/spain-1@2x.png" />
