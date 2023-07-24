@@ -18,17 +18,15 @@
 }
 .searchInput {
   position: absolute;
-  top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  box-sizing: border-box;
+  width: 100%;
   background-color: inherit;
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
   border: 0;
-  padding: inherit;
-  padding-left: calc(11px + 20px + 10px);
+  padding: 8px calc(11px + 20px + 10px);
   border-radius: 6px;
   box-shadow: 0 0 0 1px #5b6178;
   color: #fff;
