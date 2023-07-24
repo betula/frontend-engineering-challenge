@@ -6,43 +6,7 @@ const Yum2: FunctionComponent = () => {
   return (
     <div className={styles.yum2}>
       <SearchInput />
-      {/* <div className={styles.textInput}>
-        <div className={styles.labelParent}>
-          <div className={styles.label}>Label</div>
-          <div className={styles.required}>*</div>
-        </div>
-        <div className={styles.frameParent}>
-          <div className={styles.generalSearchParent}>
-            <img
-              className={styles.generalSearch}
-              alt=""
-              src="/20--general--search.svg"
-            />
-            <div className={styles.text}>Text</div>
-            <div className={styles.placeholder}>Search cuisine</div>
-          </div>
-          <div className={styles.generalDeleteWrapper}>
-            <img
-              className={styles.generalDelete}
-              alt=""
-              src="/32--general--delete1.svg"
-            />
-          </div>
-        </div>
-        <div className={styles.errorStateText}>
-          <img
-            className={styles.generalAlert}
-            alt=""
-            src="/32--general--alert1.svg"
-          />
-          <div className={styles.somethingWentWrong}>Something went wrong</div>
-        </div>
-        <div className={styles.helperText}>
-          <div className={styles.somethingWentWrong}>
-            Tristique senectus et netus et
-          </div>
-        </div>
-      </div> */}
+
       <div className={styles.frameGroup}>
         <div className={styles.generalSearchParent}>
           <img className={styles.spain1Icon} alt="" src="/spain-1@2x.png" />

@@ -1,33 +1,11 @@
-.label,
-.required {
+.label {
   position: relative;
   font-weight: 500;
-}
-.required {
-  color: #d2092d;
-}
-.labelParent {
-  display: none;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 5px;
 }
 .generalSearch {
   position: relative;
   width: 20px;
   height: 20px;
-}
-.placeholder,
-.text {
-  position: relative;
-  line-height: 24px;
-}
-.text {
-  display: none;
-}
-.placeholder {
-  color: #7185aa;
 }
 .generalSearchParent {
   display: flex;
@@ -36,14 +14,7 @@
   justify-content: flex-start;
   gap: 10px;
 }
-.generalDelete {
-  position: relative;
-  width: 24px;
-  height: 24px;
-  display: none;
-}
-.frameParent,
-.generalDeleteWrapper {
+.frameParent {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -59,41 +30,9 @@
   align-items: center;
   justify-content: space-between;
 }
-.generalAlert {
-  position: relative;
-  width: 16px;
-  height: 16px;
-}
 .somethingWentWrong {
   position: relative;
   line-height: 24px;
-}
-.errorStateText {
-  display: none;
-  flex-direction: row;
-  align-items: center;
-  gap: 6px;
-  font-size: 14px;
-  color: #d2092d;
-}
-.errorStateText,
-.helperText,
-.textInput {
-  justify-content: flex-start;
-}
-.helperText {
-  display: none;
-  flex-direction: row;
-  align-items: center;
-  font-size: 14px;
-  color: #878b9b;
-}
-.textInput {
-  align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
 }
 .spain1Icon {
   position: relative;
