@@ -1,0 +1,326 @@
+.label,
+.required {
+  position: relative;
+  font-weight: 500;
+}
+.required {
+  color: #d2092d;
+}
+.labelParent {
+  display: none;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 5px;
+}
+.generalSearch {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+.placeholder,
+.text {
+  position: relative;
+  line-height: 24px;
+}
+.text {
+  display: none;
+}
+.placeholder {
+  color: #7185aa;
+}
+.generalSearchParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.generalDelete {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: none;
+}
+.frameParent,
+.generalDeleteWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frameParent {
+  align-self: stretch;
+  border-radius: 6px;
+  background-color: #131823;
+  box-shadow: 0 0 0 1px #5b6178;
+  overflow: hidden;
+  padding: 8px 11px;
+  align-items: center;
+  justify-content: space-between;
+}
+.generalAlert {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+.somethingWentWrong {
+  position: relative;
+  line-height: 24px;
+}
+.errorStateText {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #d2092d;
+}
+.errorStateText,
+.helperText,
+.textInput {
+  justify-content: flex-start;
+}
+.helperText {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  font-size: 14px;
+  color: #878b9b;
+}
+.textInput {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.spain1Icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+}
+.brandTwitter {
+  position: relative;
+  width: 10px;
+  height: 10px;
+}
+.button1 {
+  position: relative;
+  font-weight: 500;
+  display: none;
+}
+.button {
+  border-radius: 30px;
+  background-color: #171f2f;
+  display: flex;
+  flex-direction: row;
+  padding: 7px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.addRecipe {
+  position: relative;
+  font-size: 13px;
+  line-height: 24px;
+}
+.button6 {
+  border-radius: 4px;
+  background-color: #171f2f;
+  height: 24px;
+  padding: 7px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.button6,
+.buttonParent,
+.frameGroup {
+  display: flex;
+  flex-direction: row;
+}
+.buttonParent {
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  font-size: 8px;
+  font-family: "Helvetica Neue";
+}
+.frameGroup {
+  align-self: stretch;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #fff;
+  font-family: "Bai Jamjuree";
+}
+.paella1Icon {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.difficulty {
+  line-height: 24px;
+}
+.medium {
+  line-height: 32px;
+}
+.difficultyMedium,
+.generalDelete1 {
+  position: relative;
+}
+.generalDelete1 {
+  width: 20px;
+  height: 20px;
+  display: none;
+}
+.frameContainer {
+  width: 302px;
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  padding: 1px 0 0;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 81px;
+}
+.spanishPaellaIs {
+  align-self: stretch;
+  position: relative;
+  font-size: 16px;
+  line-height: 24px;
+}
+.toast,
+.toastWrapper {
+  border-radius: 6px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.toast {
+  flex: 1;
+  background-color: #17cfc4;
+  box-shadow: 0 10px 30px 3px rgba(5, 16, 55, 0.15);
+  flex-direction: column;
+  padding: 10px 20px;
+  gap: 16px;
+}
+.toastWrapper {
+  align-self: stretch;
+  background-color: #131823;
+  overflow: hidden;
+  flex-direction: row;
+  padding: 10px;
+  font-size: 18px;
+  color: #0d1119;
+}
+.welcome {
+  position: relative;
+  font-size: 34px;
+  line-height: 40px;
+  color: #fff;
+}
+.hiNeoParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.button8,
+.buttonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button8 {
+  border-radius: 60px;
+  background-color: #7e51ff;
+  flex-direction: row;
+  padding: 14px;
+  gap: 10px;
+}
+.buttonWrapper {
+  width: 48px;
+  flex-direction: column;
+  color: #fff;
+}
+.frameDiv {
+  align-self: stretch;
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+}
+.jumboShrimp {
+  position: relative;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+}
+.proteinParent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.hot {
+  position: relative;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fb2047;
+}
+.frameParent1 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+}
+.saffron {
+  position: relative;
+  font-size: 16px;
+  font-weight: 500;
+  background: linear-gradient(136.39deg, #ffbf43, #ff4869);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.basicCard,
+.yum2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.basicCard {
+  align-self: stretch;
+  border-radius: 6px;
+  background-color: #131823;
+  box-shadow: 0 2px 6px rgba(5, 16, 55, 0.1);
+  padding: 13px 24px;
+  gap: 12px;
+  font-size: 13px;
+  color: #7185aa;
+}
+.yum2 {
+  position: relative;
+  border-radius: 10px;
+  background-color: #0d1119;
+  width: 410px;
+  overflow: hidden;
+  padding: 24px;
+  box-sizing: border-box;
+  gap: 24px;
+  text-align: left;
+  font-size: 16px;
+  color: #15171f;
+  font-family: "Helvetica Neue";
+}
