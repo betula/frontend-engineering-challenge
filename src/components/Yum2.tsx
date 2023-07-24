@@ -1,48 +1,14 @@
 import { FunctionComponent } from "react";
 import styles from "./Yum2.module.css";
 import { SearchInput } from "./SearchInput/SearchInput";
+import { RecipeHeader } from "./RecipeHeader/RecipeHeader";
 
 const Yum2: FunctionComponent = () => {
   return (
     <div className={styles.yum2}>
       <SearchInput />
-
-      <div className={styles.frameGroup}>
-        <div className={styles.generalSearchParent}>
-          <img className={styles.spain1Icon} alt="" src="/spain-1@2x.png" />
-          <div className={styles.label}>Spanish Paella</div>
-        </div>
-        <div className={styles.buttonParent}>
-          <div className={styles.button}>
-            <img
-              className={styles.brandTwitter}
-              alt=""
-              src="/20--brand--twitter.svg"
-            />
-            <div className={styles.button1}>Button</div>
-          </div>
-          <div className={styles.button}>
-            <img
-              className={styles.brandTwitter}
-              alt=""
-              src="/32--brand--telegram.svg"
-            />
-            <div className={styles.button1}>Button</div>
-          </div>
-          <div className={styles.button}>
-            <img
-              className={styles.brandTwitter}
-              alt=""
-              src="/32--brand--medium.svg"
-            />
-            <div className={styles.button1}>Button</div>
-          </div>
-          <div className={styles.button6}>
-            <div className={styles.button1}>Button</div>
-            <div className={styles.addRecipe}>+ Add recipe</div>
-          </div>
-        </div>
-      </div>
+      <RecipeHeader />
+      
       <div className={styles.toastWrapper}>
         <div className={styles.toast}>
           <div className={styles.frameContainer}>

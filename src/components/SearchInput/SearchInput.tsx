@@ -13,7 +13,7 @@ export const SearchInput: FC = () => {
   const [text, setText] = useState('');
 
   const hasText = text.length > 0;
-  const hasError = errorText.length > 0;
+  const hasError = errorText?.length > 0;
 
   const handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
     setText(event.currentTarget.value);

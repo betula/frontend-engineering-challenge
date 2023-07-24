@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  align-self: stretch;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #fff;
+  font-family: "Bai Jamjuree";
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.title {
+  font-weight: 500;
+}
+.countryFlag {
+  height: 16px;
+  border-radius: 2px;
+}
+
+.buttonGroup {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 8px;
+  font-family: "Helvetica Neue";
+}
+.brandButton {
+  border-radius: 30px;
+  background-color: #171f2f;
+  display: flex;
+  padding: 7px;
+  gap: 5px;
+  cursor: pointer;
+}
+.brandIcon {
+  width: 10px;
+  height: 10px;
+}
+
+.addRecipeButton {
+  border-radius: 4px;
+  background-color: #171f2f;
+  padding: 0 7px;
+  gap: 5px;
+  font-size: 13px;
+  line-height: 24px;
+  cursor: pointer;
+}
