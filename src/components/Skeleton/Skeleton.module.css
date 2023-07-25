@@ -1,0 +1,305 @@
+.filledhardwarekeyboardArrowIcon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.addNewRecipe {
+  position: relative;
+  line-height: 24px;
+  display: inline-block;
+  width: 133px;
+  height: 27px;
+  flex-shrink: 0;
+}
+.filledhardwarekeyboardArrowParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.frameChild {
+  position: relative;
+  border-top: 1px solid #2e3347;
+  box-sizing: border-box;
+  width: 363px;
+  height: 1px;
+}
+.frameParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  font-size: 18px;
+}
+.label,
+.required {
+  position: relative;
+  font-weight: 500;
+}
+.required {
+  color: #d2092d;
+  display: none;
+}
+.labelParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 5px;
+}
+.generalCalendar {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: none;
+}
+.placeholder,
+.text {
+  position: relative;
+  line-height: 24px;
+}
+.text {
+  display: none;
+}
+.placeholder {
+  color: #e9eaf6;
+}
+.frameGroup,
+.generalCalendarParent,
+.generalDeleteWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.generalCalendarParent {
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+}
+.frameGroup,
+.generalDeleteWrapper {
+  align-items: flex-start;
+}
+.frameGroup {
+  align-self: stretch;
+  border-radius: 6px;
+  background-color: #181f30;
+  box-shadow: 0 0 0 1px #5b6178;
+  overflow: hidden;
+  padding: 8px 11px;
+  align-items: center;
+  justify-content: space-between;
+  color: #15171f;
+}
+.generalAlert {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+.somethingWentWrong {
+  position: relative;
+  line-height: 24px;
+}
+.errorStateText {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #d2092d;
+}
+.errorStateText,
+.helperText,
+.textInput {
+  justify-content: flex-start;
+}
+.helperText {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  font-size: 14px;
+  color: #878b9b;
+}
+.textInput {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.arrowChevronDown {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+.frameContainer,
+.textInputParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.frameContainer {
+  border-radius: 6px;
+  background-color: #181f30;
+  box-shadow: 0 0 0 1px #5b6178 inset, 0 2px 6px 1px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  padding: 8px 11px;
+  justify-content: space-between;
+  color: #15171f;
+}
+.textInputParent {
+  justify-content: flex-start;
+  gap: 12px;
+}
+.text2,
+.textParent {
+  align-self: stretch;
+  flex: 1;
+}
+.text2 {
+  position: relative;
+  line-height: 24px;
+  display: none;
+}
+.textParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.frameItem,
+.frameWrapper {
+  position: absolute;
+  overflow: hidden;
+}
+.frameWrapper {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 6px;
+  background-color: #181f30;
+  box-shadow: 0 0 0 1px #5b6178;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 11px;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frameItem {
+  right: 1px;
+  bottom: 2px;
+  width: 10px;
+  height: 10px;
+}
+.frameDiv {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  color: #15171f;
+}
+.helperText2,
+.textArea {
+  display: flex;
+  justify-content: flex-start;
+}
+.helperText2 {
+  flex-direction: row;
+  align-items: center;
+  font-size: 14px;
+  color: #43495e;
+}
+.textArea {
+  align-self: stretch;
+  height: 136px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.placeholder7 {
+  flex: 1;
+  position: relative;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 300;
+  color: #e9eaf6;
+  text-align: right;
+}
+.generalCalendarParent5 {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.generalDeleteWrapper3 {
+  display: none;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frameParent6 {
+  border-radius: 6px;
+  background-color: #181f30;
+  box-shadow: 0 0 0 1px #5b6178;
+  overflow: hidden;
+  padding: 8px 11px;
+  gap: 10px;
+  color: #15171f;
+}
+.frameParent6,
+.textInputWrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.generalPencil {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: none;
+}
+.button,
+.yumazzo {
+  display: flex;
+  box-sizing: border-box;
+}
+.button {
+  align-self: stretch;
+  border-radius: 6px;
+  background-color: #764af4;
+  height: 40px;
+  flex-direction: row;
+  padding: 9px 14px 11px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.yumazzo {
+  position: relative;
+  border-radius: 10px;
+  background-color: #0d1119;
+  width: 410px;
+  overflow: hidden;
+  flex-direction: column;
+  padding: 24px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 24px;
+  text-align: left;
+  font-size: 16px;
+  color: #fff;
+  font-family: "Bai Jamjuree";
+}

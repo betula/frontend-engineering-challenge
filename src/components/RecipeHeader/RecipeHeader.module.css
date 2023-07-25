@@ -31,6 +31,7 @@
   font-family: "Helvetica Neue";
 }
 .brandButton {
+  border: 0;
   border-radius: 30px;
   background-color: #171f2f;
   display: flex;
@@ -54,4 +55,10 @@
   cursor: pointer;
   text-decoration: none;
   color: inherit;
+}
+
+.brandButton:focus,
+.addRecipeButton:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px #b89fff, 0 0 0 1px #663cdd inset;
 }

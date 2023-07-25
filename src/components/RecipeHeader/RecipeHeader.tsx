@@ -11,9 +11,15 @@ export const RecipeHeader: FC = () => {
   const countryCode = 'es';
   const title = 'Spanish Paella';
 
-  const handleTwitterButton = () => {}
-  const handleTelegramButton = () => {}
-  const handleMediumButton = () => {}
+  const handleTwitterButton = () => {
+    console.log('twitter click');
+  }
+  const handleTelegramButton = () => {
+    console.log('telegram click');
+  }
+  const handleMediumButton = () => {
+    console.log('medium click');
+  }
 
   return (
     <div className={styles.container}>
@@ -22,15 +28,15 @@ export const RecipeHeader: FC = () => {
         <div className={styles.title}>{title}</div>
       </div>
       <div className={styles.buttonGroup}>
-        <div className={styles.brandButton} role="button" onClick={handleTwitterButton}>
+        <button className={styles.brandButton} onClick={handleTwitterButton}>
           <img className={styles.brandIcon} alt="twitter" src={iconTwitter} />
-        </div>
-        <div className={styles.brandButton} role="button" onClick={handleTelegramButton}>
+        </button>
+        <button className={styles.brandButton} onClick={handleTelegramButton}>
           <img className={styles.brandIcon} alt="telegram" src={iconTelegram} />
-        </div>
-        <div className={styles.brandButton} role="button" onClick={handleMediumButton}>
+        </button>
+        <button className={styles.brandButton} onClick={handleMediumButton}>
           <img className={styles.brandIcon} alt="medium" src={iconMedium} />
-        </div>
+        </button>
         <Link to="create-recipe" className={styles.addRecipeButton} role="button">
           + Add recipe
         </Link>
