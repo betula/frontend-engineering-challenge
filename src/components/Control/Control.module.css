@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.controlContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #131823;
+  box-shadow: 0 0 0 1px #5b6178;
+  border-radius: 6px;
+  color: white;
+}
+.controlContainer.focused {
+  box-shadow: 0 0 0 4px #b89fff, 0 0 0 1px #663cdd inset;
+}
+
+.errorContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #d2092d;
+}
+.errorIcon {
+  width: 16px;
+  height: 16px;
+}
+.errorText {
+  line-height: 24px;
+}

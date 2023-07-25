@@ -1,7 +1,5 @@
-import { useState } from "react";
-import cn from "classnames";
 import styles from "./Input.module.css";
-import errorIcon from "../../assets/general-alert1.svg";
+import { Control } from "../Control/Control";
 
 interface Props {
   prefix?: React.ReactNode;
@@ -20,40 +18,29 @@ export const Input: React.FC<Props> = ({
   value,
   onChange
 }) => {
-  const [focused, setFocused] = useState(false);
-
   const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
     onChange(event.currentTarget.value);
   }
-  const handleFocus = () => setFocused(true);
-  const handleBlur = () => setFocused(false);
 
   return (
-    <div className={styles.container}>
-      <div className={cn(styles.inputContainer, {
-        [styles.focused]: focused
-      })}>
-        {prefix || null}
+    <Control error={error}>
+      {(handleFocus, handleBlur) => (
+        <div className={styles.inputContainer}>
+          {prefix || null}
 
-        <input
-          type="text"
-          value={value}
-          onChange={handleChange}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          className={styles.input}
-          placeholder={placeholder}
-        />
+          <input
+            type="text"
+            value={value}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            className={styles.input}
+            placeholder={placeholder}
+          />
 
-        {postfix || null}
-      </div>
-
-      {error ? (
-        <div className={styles.errorContainer}>
-          <img className={styles.errorIcon} src={errorIcon} />
-          <div className={styles.errorText}>{error}</div>
+          {postfix || null}
         </div>
-      ) : null}
-    </div>
+      )}
+    </Control>
   );
 };
