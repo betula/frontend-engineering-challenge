@@ -1,0 +1,26 @@
+.container {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 18px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.title {
+  line-height: 24px;
+  display: inline-block;
+  height: 27px;
+}
+.backIcon {
+  width: 24px;
+  height: 24px;
+}
+.bottom {
+  border-top: 1px solid #2e3347;
+  box-sizing: border-box;
+  height: 1px;
+}

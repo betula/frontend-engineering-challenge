@@ -1,7 +1,7 @@
 import { useState } from "react";
 import cn from "classnames";
 import styles from "./Control.module.css";
-import errorIcon from "../../assets/general-alert1.svg";
+import errorIcon from "../../assets/general-alert.svg";
 
 interface Props {
   bottom?: React.ReactNode;

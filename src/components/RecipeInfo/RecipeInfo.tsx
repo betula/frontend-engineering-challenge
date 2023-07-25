@@ -1,7 +1,6 @@
-import { FC } from "react";
 import styles from "./RecipeInfo.module.css";
 
-export const RecipeInfo: FC = () => {
+export const RecipeInfo: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.body}>

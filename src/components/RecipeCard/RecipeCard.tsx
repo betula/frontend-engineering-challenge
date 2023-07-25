@@ -1,7 +1,6 @@
-import { FC } from "react";
 import styles from "./RecipeCard.module.css";
 
-export const RecipeCard: FC = () => {
+export const RecipeCard: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.row}>

@@ -1,20 +1,12 @@
 import { FunctionComponent } from "react";
 import styles from "./Skeleton.module.css";
+import { Header } from "../Header/Header";
 
 export const Skeleton: FunctionComponent = () => {
   return (
     <div className={styles.yumazzo}>
-      <div className={styles.frameParent}>
-        <div className={styles.filledhardwarekeyboardArrowParent}>
-          <img
-            className={styles.filledhardwarekeyboardArrowIcon}
-            alt=""
-            src="/filledhardwarekeyboardarrowleft.svg"
-          />
-          <b className={styles.addNewRecipe}>{`Add new recipe `}</b>
-        </div>
-        <div className={styles.frameChild} />
-      </div>
+      <Header title="Add new recipe" />
+
       <div className={styles.textInputParent}>
         <div className={styles.textInput}>
           <div className={styles.labelParent}>

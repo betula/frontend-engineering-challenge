@@ -1,4 +1,3 @@
-import { FC } from "react";
 import Flag from "react-world-flags";
 import styles from "./RecipeHeader.module.css";
 
@@ -7,7 +6,7 @@ import iconTelegram from '../../assets/brand-telegram.svg';
 import iconMedium from '../../assets/brand-medium.svg';
 import { Link } from "react-router-dom";
 
-export const RecipeHeader: FC = () => {
+export const RecipeHeader: React.FC = () => {
   const countryCode = 'es';
   const title = 'Spanish Paella';
 
