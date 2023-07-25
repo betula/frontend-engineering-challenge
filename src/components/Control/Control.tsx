@@ -6,12 +6,20 @@ import errorIcon from "../../assets/general-alert.svg";
 interface Props {
   bottom?: React.ReactNode;
   error?: string;
+  label?: string;
+  required?: boolean;
+  inputClassName?: string;
+  focusedClassName?: string;
   children: (handleFocus: () => void, handleBlur: () => void) => React.ReactNode;
 }
 
 export const Control: React.FC<Props> = ({
   bottom,
   error,
+  label,
+  required,
+  inputClassName,
+  focusedClassName,
   children
 }) => {
   const [focused, setFocused] = useState(false);
@@ -19,11 +27,23 @@ export const Control: React.FC<Props> = ({
   const handleFocus = () => setFocused(true);
   const handleBlur = () => setFocused(false);
 
+  const controlContainerClassName = cn(
+    inputClassName, 
+    styles.controlContainer,
+    focused && [styles.controlContainerFocused, focusedClassName]
+  );
+
   return (
     <div className={styles.container}>
-      <div className={cn(styles.controlContainer, {
-        [styles.focused]: focused
-      })}>
+      {label ? (
+        <div className={styles.labelContainer}>
+          <div className={styles.label}>{label}</div>
+          {required ? (
+            <div className={styles.required}>*</div>
+          ) : null}
+        </div>
+      ) : null}
+      <div className={controlContainerClassName}>
         {children(handleFocus, handleBlur)}
       </div>
 

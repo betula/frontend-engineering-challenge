@@ -6,12 +6,16 @@ interface Props {
 }
 
 export const Header: React.FC<Props> = ({ title }) => {
+
+  const handleBack = () => history.back();
+
   return (
     <div className={styles.container}>
       <div className={styles.row}>
-        <img className={styles.backIcon} src={backIcon} />
-
-        <b className={styles.title}>{title}</b>
+        <button onClick={handleBack} className={styles.backButton}>
+          <img className={styles.backIcon} src={backIcon} />
+        </button>
+        <div className={styles.title}>{title}</div>
       </div>
       <div className={styles.bottom} />
     </div>

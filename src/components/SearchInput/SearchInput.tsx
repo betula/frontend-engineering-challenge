@@ -14,6 +14,8 @@ export const SearchInput: React.FC = () => {
 
   return (
     <Input
+      inputClassName={styles.searchInput}
+      focusedClassName={styles.searchInputFocused}
       value={text}
       onChange={setText}
       placeholder="Search cuisine"

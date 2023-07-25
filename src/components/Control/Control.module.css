@@ -4,16 +4,31 @@
   gap: 10px;
 }
 
+.labelContainer {
+  display: flex;
+  gap: 5px;
+  font-size: 16px;
+  color: #fff;
+  font-family: "Bai Jamjuree";
+}
+.label,
+.required {
+  font-weight: 500;
+}
+.required {
+  color: #d2092d;
+}
+
 .controlContainer {
   display: flex;
   flex-direction: column;
-  background-color: #131823;
+  background-color: #181f30;
   box-shadow: 0 0 0 1px #5b6178;
   border-radius: 6px;
   color: white;
 }
-.controlContainer.focused {
-  box-shadow: 0 0 0 4px #b89fff, 0 0 0 1px #663cdd inset;
+.controlContainerFocused {
+  box-shadow: 0 0 0 2px #b89fff, 0 0 0 1px #663cdd inset;
 }
 
 .errorContainer {

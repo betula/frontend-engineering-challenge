@@ -1,3 +1,10 @@
+.searchInput.searchInput {
+  background-color: #131823;
+}
+.searchInputFocused.searchInputFocused {
+  box-shadow: 0 0 0 4px #b89fff, 0 0 0 1px #663cdd inset;
+}
+
 .searchIconContainer {
   display: flex;
 }

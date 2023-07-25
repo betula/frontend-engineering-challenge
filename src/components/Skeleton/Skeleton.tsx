@@ -1,52 +1,26 @@
-import { FunctionComponent } from "react";
+import { useState } from "react";
 import styles from "./Skeleton.module.css";
 import { Header } from "../Header/Header";
+import { Input } from "../Input/Input";
 
-export const Skeleton: FunctionComponent = () => {
+export const Skeleton: React.FC = () => {
+  const [name, setName] = useState('');
+  const [protein, setProtein] = useState('');
+  const [produce, setProduce] = useState('');
+  const [spice, setSpice] = useState('');
+
   return (
     <div className={styles.yumazzo}>
       <Header title="Add new recipe" />
 
       <div className={styles.textInputParent}>
-        <div className={styles.textInput}>
-          <div className={styles.labelParent}>
-            <div className={styles.label}>Name</div>
-            <div className={styles.required}>*</div>
-          </div>
-          <div className={styles.frameGroup}>
-            <div className={styles.generalCalendarParent}>
-              <img
-                className={styles.generalCalendar}
-                alt=""
-                src="/32--general--calendar.svg"
-              />
-              <div className={styles.text}>Text</div>
-              <div className={styles.placeholder}>Name your recipe</div>
-            </div>
-            <div className={styles.generalDeleteWrapper}>
-              <img
-                className={styles.generalCalendar}
-                alt=""
-                src="/32--general--delete.svg"
-              />
-            </div>
-          </div>
-          <div className={styles.errorStateText}>
-            <img
-              className={styles.generalAlert}
-              alt=""
-              src="/32--general--alert.svg"
-            />
-            <div className={styles.somethingWentWrong}>
-              Something went wrong
-            </div>
-          </div>
-          <div className={styles.helperText}>
-            <div className={styles.somethingWentWrong}>
-              Tristique senectus et netus et
-            </div>
-          </div>
-        </div>
+        
+        <Input
+          label="Name"
+          value={name}
+          onChange={setName}
+          />
+
         <div className={styles.textInput}>
           <div className={styles.labelParent}>
             <div className={styles.label}>Origin</div>
@@ -153,125 +127,24 @@ export const Skeleton: FunctionComponent = () => {
             </div>
           </div>
         </div>
-        <div className={styles.textInput}>
-          <div className={styles.labelParent}>
-            <div className={styles.label}>Protein</div>
-            <div className={styles.required}>*</div>
-          </div>
-          <div className={styles.frameGroup}>
-            <div className={styles.generalCalendarParent}>
-              <img
-                className={styles.generalCalendar}
-                alt=""
-                src="/32--general--calendar.svg"
-              />
-              <div className={styles.text}>Text</div>
-              <div className={styles.placeholder}>Fish, Meat, Plant?</div>
-            </div>
-            <div className={styles.generalDeleteWrapper}>
-              <img
-                className={styles.generalCalendar}
-                alt=""
-                src="/32--general--delete.svg"
-              />
-            </div>
-          </div>
-          <div className={styles.errorStateText}>
-            <img
-              className={styles.generalAlert}
-              alt=""
-              src="/32--general--alert.svg"
-            />
-            <div className={styles.somethingWentWrong}>
-              Something went wrong
-            </div>
-          </div>
-          <div className={styles.helperText}>
-            <div className={styles.somethingWentWrong}>
-              Tristique senectus et netus et
-            </div>
-          </div>
-        </div>
+
+        <Input
+          label="Protein"
+          value={protein}
+          onChange={setProtein}
+          />
       </div>
       <div className={styles.textInputParent}>
-        <div className={styles.textInput}>
-          <div className={styles.labelParent}>
-            <div className={styles.label}>Produce</div>
-            <div className={styles.required}>*</div>
-          </div>
-          <div className={styles.frameGroup}>
-            <div className={styles.generalCalendarParent}>
-              <img
-                className={styles.generalCalendar}
-                alt=""
-                src="/32--general--calendar.svg"
-              />
-              <div className={styles.text}>Text</div>
-              <div className={styles.placeholder}>Which products?</div>
-            </div>
-            <div className={styles.generalDeleteWrapper}>
-              <img
-                className={styles.generalCalendar}
-                alt=""
-                src="/32--general--delete.svg"
-              />
-            </div>
-          </div>
-          <div className={styles.errorStateText}>
-            <img
-              className={styles.generalAlert}
-              alt=""
-              src="/32--general--alert.svg"
-            />
-            <div className={styles.somethingWentWrong}>
-              Something went wrong
-            </div>
-          </div>
-          <div className={styles.helperText}>
-            <div className={styles.somethingWentWrong}>
-              Tristique senectus et netus et
-            </div>
-          </div>
-        </div>
-        <div className={styles.textInput}>
-          <div className={styles.labelParent}>
-            <div className={styles.label}>Spice</div>
-            <div className={styles.required}>*</div>
-          </div>
-          <div className={styles.frameGroup}>
-            <div className={styles.generalCalendarParent}>
-              <img
-                className={styles.generalCalendar}
-                alt=""
-                src="/32--general--calendar.svg"
-              />
-              <div className={styles.text}>Text</div>
-              <div className={styles.placeholder}>Share your spices</div>
-            </div>
-            <div className={styles.generalDeleteWrapper}>
-              <img
-                className={styles.generalCalendar}
-                alt=""
-                src="/32--general--delete.svg"
-              />
-            </div>
-          </div>
-          <div className={styles.errorStateText}>
-            <img
-              className={styles.generalAlert}
-              alt=""
-              src="/32--general--alert.svg"
-            />
-            <div className={styles.somethingWentWrong}>
-              Something went wrong
-            </div>
-          </div>
-          <div className={styles.helperText}>
-            <div className={styles.somethingWentWrong}>
-              Tristique senectus et netus et
-            </div>
-          </div>
-        </div>
+        <Input
+          label="Prodice"
+          value={produce}
+          onChange={setProduce}
+          />
+        <Input
+          label="Spice"
+          value={spice}
+          onChange={setSpice}
+          />
       </div>
       <div className={styles.textInputParent}>
         <div className={styles.textInput}>
