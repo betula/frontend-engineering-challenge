@@ -1,18 +1,16 @@
-import { FC } from "react";
-import styles from "./Page.module.css";
-
 import { SearchInput } from "./SearchInput/SearchInput";
 import { RecipeHeader } from "./RecipeHeader/RecipeHeader";
 import { RecipeInfo } from "./RecipeInfo/RecipeInfo";
 import { RecipeCard } from "./RecipeCard/RecipeCard";
+import { Layout } from "./Layout/Layout";
 
-export const Page: FC = () => {
+export const HomePage: React.FC = () => {
   return (
-    <div className={styles.container}>
+    <Layout>
       <SearchInput />
       <RecipeHeader />
       <RecipeInfo />
       <RecipeCard />
-    </div>
+    </Layout>
   );
 };

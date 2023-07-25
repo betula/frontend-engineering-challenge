@@ -5,6 +5,7 @@ import styles from "./RecipeHeader.module.css";
 import iconTwitter from '../../assets/brand-twitter.svg';
 import iconTelegram from '../../assets/brand-telegram.svg';
 import iconMedium from '../../assets/brand-medium.svg';
+import { Link } from "react-router-dom";
 
 export const RecipeHeader: FC = () => {
   const countryCode = 'es';
@@ -30,9 +31,9 @@ export const RecipeHeader: FC = () => {
         <div className={styles.brandButton} role="button" onClick={handleMediumButton}>
           <img className={styles.brandIcon} alt="medium" src={iconMedium} />
         </div>
-        <div className={styles.addRecipeButton} role="button">
+        <Link to="create-recipe" className={styles.addRecipeButton} role="button">
           + Add recipe
-        </div>
+        </Link>
       </div>
     </div>
   );

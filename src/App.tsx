@@ -1,8 +1,21 @@
 import { FC } from "react";
-import { Page } from "./components/Page";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { HomePage } from "./components/HomePage";
+import { CreateRecipePage } from "./components/CreateRecipePage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomePage />,
+  },
+  {
+    path: "/create-recipe",
+    element: <CreateRecipePage />,
+  },
+]);
 
 export const App: FC = () => {
   return (
-    <Page />
+    <RouterProvider router={router} />
   )
 };

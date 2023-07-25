@@ -52,4 +52,6 @@
   font-size: 13px;
   line-height: 24px;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }

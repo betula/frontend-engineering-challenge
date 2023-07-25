@@ -1,0 +1,59 @@
+.container {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-self: stretch;
+  background-color: #131823;
+  padding: 8px 11px;
+  line-height: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 0 1px #5b6178;
+  border-radius: 6px;
+  gap: 10px;
+  color: white;
+}
+.inputContainer.focused {
+  box-shadow: 0 0 0 4px #b89fff, 0 0 0 1px #663cdd inset;
+}
+.input {
+  display: flex;
+  flex-grow: 1;
+  background-color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  border: 0;
+  padding: 0;
+}
+.input::placeholder {
+  color: #7185aa;
+  opacity: 1;
+}
+.input:focus {
+  outline: 0;
+}
+
+.errorContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #d2092d;
+}
+.errorIcon {
+  width: 16px;
+  height: 16px;
+}
+.errorText {
+  line-height: 24px;
+}
