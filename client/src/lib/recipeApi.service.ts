@@ -1,3 +1,4 @@
+import { ValidatorErrors } from "./form/ValidatorErrors";
 import { Recipe } from "./recipe.interface";
 
 class RecipeApiService {
@@ -11,11 +12,17 @@ class RecipeApiService {
       },
       body: JSON.stringify(recipe),
     });
-    if (response.status !== 201) {
-      throw new Error('Server answered with error');
+    const status = response.status;
+    if (status === 201 || status === 400) {
+      const data = await response.json();
+      if (status === 201) {
+        return data.message
+      }
+      if (data.errors) {
+        throw new ValidatorErrors(data.errors)
+      }
     }
-    const data = await response.json();
-    return data.message;
+    throw new Error('Server answered with error');
   }
 
   async search(query: string): Promise<Recipe[]> {

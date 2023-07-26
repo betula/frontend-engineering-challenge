@@ -25,94 +25,79 @@ export const RecipeForm: React.FC = observer(() => {
         <Input
           label="Name"
           required
-          value={fields.name.value}
-          onChange={fields.name.setValue}
-          error={fields.name.error}
+          {...fields.name.controlHandler}
           />
 
         <Select
           label="Origin"
           placeholder="Country origin"
           options={form.options.origin}
-          value={fields.origin.value}
-          onChange={fields.origin.setValue}
+          {...fields.origin.controlHandler}
           />
       </div>
 
       <Textarea 
-        value={fields.description.value}
-        onChange={fields.description.setValue}
         label="Description"
         placeholder="Describe your recipe..."
         limit={200}
+        {...fields.description.controlHandler}
         />
 
       <div className={styles.row}>
         <Select
           label="Difficulty"
           options={form.options.difficulty}
-          value={fields.difficulty.value}
-          onChange={fields.difficulty.setValue}
+          {...fields.difficulty.controlHandler}
           />
         
         <Input
           label="Protein"
-          value={fields.protein.value}
-          onChange={fields.protein.setValue}
           placeholder="Fish, Meat, Plant?"
+          {...fields.protein.controlHandler}
           />
       </div>
 
       <div className={styles.row}>
         <Input
           label="Produce"
-          value={fields.produce.value}
-          onChange={fields.produce.setValue}
           placeholder="Which products?"
+          {...fields.produce.controlHandler}
           />
         <Input
           label="Spices"
-          value={fields.spice.value}
-          onChange={fields.spice.setValue}
+          {...fields.spice.controlHandler}
           />
       </div>
 
       <div className={styles.row}>
         <Input
           label="Cooking Oil?"
-          value={fields.cookingOil.value}
-          onChange={fields.cookingOil.setValue}
+          {...fields.cookingOil.controlHandler}
           />
 
         <Input
           label="Volume"
-          value={fields.volume.value}
-          onChange={fields.volume.setValue}
           postfix="gramms"
-          error={fields.volume.error}
+          {...fields.volume.controlHandler}
           />
       </div>
 
       <div className={styles.row}>
         <Input
           label="Serves"
-          value={fields.serves.value}
-          onChange={fields.serves.setValue}
           postfix="people"
-          error={fields.serves.error}
+          {...fields.serves.controlHandler}
           />
         <Select
           label="Authenticity"
           options={form.options.authenticity}
-          value={fields.authenticity.value}
-          onChange={fields.authenticity.setValue}
+          {...fields.authenticity.controlHandler}
           />
       </div>
 
       <Input
         label="Stock"
-        value={fields.stock.value}
-        onChange={fields.stock.setValue}
+        {...fields.stock.controlHandler}
         />
 
       <button type="submit" className={cn(styles.button, { 

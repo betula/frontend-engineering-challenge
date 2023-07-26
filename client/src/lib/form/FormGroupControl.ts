@@ -1,5 +1,6 @@
 import { computed, makeObservable } from "mobx";
 import { FormControl, Validator } from "./FormControl";
+import { Errors } from "./ValidatorErrors";
 
 type GroupOptions = {
   [key: string]: string | [string, Validator] | FormControl;
@@ -58,5 +59,14 @@ export class FormGroupControl<T extends GroupOptions> {
     Object.keys(this.fields).forEach((key) => (
       this.fields[key].validate()
     ));
+  }
+
+  setErrors(errors: Errors) {
+    const keys = Object.keys(errors);
+    keys.forEach((key) => {
+      if (this.fields[key]) {
+        this.fields[key].error = errors[key];
+      }
+    });
   }
 }

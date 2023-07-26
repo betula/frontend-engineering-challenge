@@ -10,6 +10,8 @@ import difficultyOptions from "../../lib/dictionary/difficulty.json";
 import authenticityOptions from "../../lib/dictionary/authenticity.json";
 import { Recipe } from "../../lib/recipe.interface";
 import { currentRecipeService } from "../../lib/currentRecipe.service";
+import { maxLengthValidator } from "../../lib/form/validator/maxLength";
+import { ValidatorErrors } from "../../lib/form/ValidatorErrors";
 
 export class RecipeFormLogic {
 
@@ -43,25 +45,27 @@ export class RecipeFormLogic {
     })
   }
 
-  doFinish(recipe: Recipe, message: string) {
-    toast.success(message);
+  doFinish(recipe: Recipe) {
     currentRecipeService.recipe = recipe;
-
     history.back();
   }
-  doError(message: string) {
+
+  informSuccess(message: string) {
+    toast.success(message);
+  }
+  informError(message: string) {
     toast.error(message);
   }
-  doInvalid() {
+  informInvalid() {
     toast.error('Not all form fields filled correctly');
   }
 
   async submit() {
-    if (this.pending) return;
+    if (this.pending || this.group.invalid) return;
 
     this.group.validate();
     if (this.group.invalid) {
-      this.doInvalid();
+      this.informInvalid();
       return;
     }
 
@@ -77,11 +81,20 @@ export class RecipeFormLogic {
     try {
       this.pending = true;
       const message = await recipeApiService.publish(recipe);
-      this.doFinish(recipe, message);
+      this.informSuccess(message);
+      this.doFinish(recipe);
     }
     catch (e) {
-      console.error(e);
-      this.doError('Server answered with error');
+      if (e instanceof ValidatorErrors) {
+        this.group.setErrors(e.errors);
+        if (this.group.invalid) {
+          this.informInvalid();
+        }
+      }
+      else {
+        console.error(e);
+        this.informError('Server answered with error');
+      }
     }
     finally {
       this.pending = false;

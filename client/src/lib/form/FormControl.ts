@@ -23,6 +23,14 @@ export class FormControl {
     this.value = value;
   }
 
+  get controlHandler() {
+    return {
+      value: this.value,
+      onChange: this.setValue,
+      error: this.error
+    }
+  }
+
   constructor(value: string, validator?: Validator) {
     this._value = value;
     this._validator = validator;

@@ -1,4 +1,8 @@
-import { Injectable, ServiceUnavailableException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  ServiceUnavailableException,
+} from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Recipe } from './recipe.interface';
 
@@ -83,6 +87,7 @@ export class RecipeService {
   }
 
   private async postRecipe(recipe: Recipe) {
+    console.log(recipe);
     const response = await fetch(this.gateway, {
       method: 'POST',
       headers: {
@@ -91,10 +96,26 @@ export class RecipeService {
       body: JSON.stringify(recipe),
     });
 
-    if (response.status !== 201) {
+    const status = response.status;
+    if (status === 201 || status === 422) {
+      const data = await response.json();
+
+      if (status === 422) {
+        const errors = {};
+        // transform error format
+        if (Array.isArray(data.detail)) {
+          data.detail.forEach((item) => {
+            if (item && Array.isArray(item.loc) && item.msg) {
+              errors[item.loc.at(-1)] = item.msg;
+            }
+          });
+        }
+        throw new BadRequestException({ errors });
+      }
+
+      return data.message;
+    } else {
       throw new ServiceUnavailableException('Post recipe gateway unavailable');
     }
-    const data = await response.json();
-    return data.message;
   }
 }
