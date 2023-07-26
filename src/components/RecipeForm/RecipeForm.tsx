@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { observer } from "mobx-react-lite";
+import cn from "classnames";
 import styles from "./RecipeForm.module.css";
 import { Header } from "../Header/Header";
 import { Input } from "../form/Input/Input";
@@ -26,6 +27,7 @@ export const RecipeForm: React.FC = observer(() => {
           required
           value={fields.name.value}
           onChange={fields.name.setValue}
+          error={fields.name.error}
           />
 
         <Select
@@ -87,6 +89,7 @@ export const RecipeForm: React.FC = observer(() => {
           value={fields.volume.value}
           onChange={fields.volume.setValue}
           postfix="gramms"
+          error={fields.volume.error}
           />
       </div>
 
@@ -96,6 +99,7 @@ export const RecipeForm: React.FC = observer(() => {
           value={fields.serves.value}
           onChange={fields.serves.setValue}
           postfix="people"
+          error={fields.serves.error}
           />
         <Select
           label="Authenticity"
@@ -111,7 +115,9 @@ export const RecipeForm: React.FC = observer(() => {
         onChange={fields.stock.setValue}
         />
 
-      <button type="submit" className={styles.button}>
+      <button type="submit" className={cn(styles.button, { 
+        [styles.buttonInvalid]: form.group.invalid
+      })}>
         Add Recipe
       </button>
     </form>

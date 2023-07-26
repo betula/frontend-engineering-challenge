@@ -1,43 +1,41 @@
 import { makeObservable, observable } from "mobx";
 
-type Validator<T> = (value: T) => boolean;
+export type Validator = (value: string) => string;
 
-export class FormControl<T> {
-  _value: T;
-  _validator?: Validator<T>
+export class FormControl {
+  _value: string;
+  _validator?: Validator
 
-  valid = true;
+  error = '';
   
   get value() {
     return this._value;
   }
-  set value(value: T) {
+  set value(value: string) {
     this._value = value;
 
-    if (!this.valid) {
+    if (this.error) {
       this.validate();
     }
   }
 
-  constructor(value: T, validator?: Validator<T>) {
+  constructor(value: string, validator?: Validator) {
     this._value = value;
     this._validator = validator;
 
-    this.validate();
-
     makeObservable(this, {
       _value: observable.ref,
-      valid: observable.ref
+      error: observable.ref
     })
   }
 
   validate() {
-    this.valid = this._validator
+    this.error = this._validator
       ? this._validator(this._value)
-      : true;
+      : '';
   }
 
-  setValue = (value: T) => {
+  setValue = (value: string) => {
     this.value = value;
   }
 }
