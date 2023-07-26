@@ -24,7 +24,7 @@ export const Textarea: React.FC<Props> = ({
     const target = event.currentTarget;
 
     const { paddingTop, paddingBottom } = getComputedStyle(target);
-    target.style.height = '1px';
+    target.style.height = '0';
     target.style.height = 
       (target.scrollHeight - parseFloat(paddingTop) - parseFloat(paddingBottom)) + 'px';
 

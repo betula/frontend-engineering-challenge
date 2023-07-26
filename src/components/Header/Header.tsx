@@ -1,5 +1,5 @@
 import styles from "./Header.module.css";
-import backIcon from "../../assets/arrow-left.svg";
+import backIcon from "./assets/arrow-left.svg";
 
 interface Props {
   title: string;

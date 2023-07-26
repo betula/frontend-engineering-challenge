@@ -32,7 +32,7 @@ export const Input: React.FC<Props> = ({
 
   return (
     <Control
-      inputClassName={inputClassName}
+      controlClassName={inputClassName}
       focusedClassName={focusedClassName}
       label={label}
       required={required}

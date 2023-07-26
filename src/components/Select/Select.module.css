@@ -1,0 +1,42 @@
+.selectContainer {
+  position: relative;
+  display: flex;
+  padding: 8px 11px;
+  line-height: 24px;
+  height: 24px;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.body {
+  display: flex;
+  align-self: stretch;
+  flex-grow: 1;
+}
+
+.placeholder {
+  color: #7185aa;
+}
+
+.select {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  color: transparent;
+  border: 0;
+  padding: 0;
+}
+.select:focus {
+  outline: 0;
+}
+
+.arrowIconContainer {
+  display: flex;
+}
+.arrowIcon {
+  width: 20px;
+  height: 20px;
+}

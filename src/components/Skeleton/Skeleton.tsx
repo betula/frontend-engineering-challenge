@@ -3,6 +3,7 @@ import styles from "./Skeleton.module.css";
 import { Header } from "../Header/Header";
 import { Input } from "../Input/Input";
 import { Textarea } from "../Textarea/Textarea";
+import { Select } from "../Select/Select";
 
 export const Skeleton: React.FC = () => {
   const [name, setName] = useState('');
@@ -14,6 +15,22 @@ export const Skeleton: React.FC = () => {
   const [volume, setVolume] = useState('');
   const [serves, setServes] = useState('');
   const [stock, setStock] = useState('');
+
+  const originOptions = {
+    'es': 'Spain',
+    'it': 'Italy'
+  }
+  const [origin, setOrigin] = useState('');
+
+  const difficultyOptions = {
+    '0': 'Easy',
+    '1': 'Medium',
+    '2': 'Hard'
+  }
+  const [difficulty, setDifficulty] = useState(Object.keys(difficultyOptions)[0]);
+
+  const authenticityOptions = ['Verified', 'Unverified'];
+  const [authenticity, setAuthenticity] = useState(authenticityOptions[0]);
 
   return (
     <div className={styles.yumazzo}>
@@ -27,45 +44,14 @@ export const Skeleton: React.FC = () => {
           onChange={setName}
           />
 
-        <div className={styles.textInput}>
-          <div className={styles.labelParent}>
-            <div className={styles.label}>Origin</div>
-            <div className={styles.required}>*</div>
-          </div>
-          <div className={styles.frameContainer}>
-            <div className={styles.filledhardwarekeyboardArrowParent}>
-              <img
-                className={styles.generalCalendar}
-                alt=""
-                src="/32--general--calendar1.svg"
-              />
-              <div className={styles.text}>Text</div>
-              <div className={styles.placeholder}>Country origin</div>
-            </div>
-            <div className={styles.generalDeleteWrapper}>
-              <img
-                className={styles.arrowChevronDown}
-                alt=""
-                src="/20--arrow--chevron-down.svg"
-              />
-            </div>
-          </div>
-          <div className={styles.errorStateText}>
-            <img
-              className={styles.generalAlert}
-              alt=""
-              src="/32--general--alert.svg"
-            />
-            <div className={styles.somethingWentWrong}>
-              Something went wrong
-            </div>
-          </div>
-          <div className={styles.helperText}>
-            <div className={styles.somethingWentWrong}>
-              Tristique senectus et netus et
-            </div>
-          </div>
-        </div>
+        <Select
+          label="Origin"
+          placeholder="Country origin"
+          options={originOptions}
+          value={origin}
+          onChange={setOrigin}
+          />
+
       </div>
 
       <Textarea 
@@ -74,49 +60,17 @@ export const Skeleton: React.FC = () => {
         label="Description"
         placeholder="Describe your recipe..."
         limit={200}
-      />
+        />
 
       <div className={styles.textInputParent}>
-        <div className={styles.textInput}>
-          <div className={styles.labelParent}>
-            <div className={styles.label}>Difficulty</div>
-            <div className={styles.required}>*</div>
-          </div>
-          <div className={styles.frameContainer}>
-            <div className={styles.filledhardwarekeyboardArrowParent}>
-              <img
-                className={styles.generalCalendar}
-                alt=""
-                src="/32--general--calendar1.svg"
-              />
-              <div className={styles.text}>Text</div>
-              <div className={styles.placeholder}>Easy</div>
-            </div>
-            <div className={styles.generalDeleteWrapper}>
-              <img
-                className={styles.arrowChevronDown}
-                alt=""
-                src="/20--arrow--chevron-down.svg"
-              />
-            </div>
-          </div>
-          <div className={styles.errorStateText}>
-            <img
-              className={styles.generalAlert}
-              alt=""
-              src="/32--general--alert.svg"
-            />
-            <div className={styles.somethingWentWrong}>
-              Something went wrong
-            </div>
-          </div>
-          <div className={styles.helperText}>
-            <div className={styles.somethingWentWrong}>
-              Tristique senectus et netus et
-            </div>
-          </div>
-        </div>
-
+        
+        <Select
+          label="Difficulty"
+          options={difficultyOptions}
+          value={difficulty}
+          onChange={setDifficulty}
+          />
+        
         <Input
           label="Protein"
           value={protein}
@@ -158,46 +112,12 @@ export const Skeleton: React.FC = () => {
           onChange={setServes}
           postfix="people"
           />
-
-        <div className={styles.textInput}>
-          <div className={styles.labelParent}>
-            <div className={styles.label}>Authenticity</div>
-            <div className={styles.required}>*</div>
-          </div>
-          <div className={styles.frameContainer}>
-            <div className={styles.filledhardwarekeyboardArrowParent}>
-              <img
-                className={styles.generalCalendar}
-                alt=""
-                src="/32--general--calendar1.svg"
-              />
-              <div className={styles.text}>Text</div>
-              <div className={styles.placeholder}>Unverified</div>
-            </div>
-            <div className={styles.generalDeleteWrapper}>
-              <img
-                className={styles.arrowChevronDown}
-                alt=""
-                src="/20--arrow--chevron-down.svg"
-              />
-            </div>
-          </div>
-          <div className={styles.errorStateText}>
-            <img
-              className={styles.generalAlert}
-              alt=""
-              src="/32--general--alert.svg"
-            />
-            <div className={styles.somethingWentWrong}>
-              Something went wrong
-            </div>
-          </div>
-          <div className={styles.helperText}>
-            <div className={styles.somethingWentWrong}>
-              Tristique senectus et netus et
-            </div>
-          </div>
-        </div>
+        <Select
+          label="Authenticity"
+          options={authenticityOptions}
+          value={authenticity}
+          onChange={setAuthenticity}
+          />
       </div>
       <div className={styles.textInputWrapper}>
 

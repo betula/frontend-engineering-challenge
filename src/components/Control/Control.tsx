@@ -8,7 +8,7 @@ interface Props {
   error?: string;
   label?: string;
   required?: boolean;
-  inputClassName?: string;
+  controlClassName?: string;
   focusedClassName?: string;
   children: (handleFocus: () => void, handleBlur: () => void) => React.ReactNode;
 }
@@ -18,7 +18,7 @@ export const Control: React.FC<Props> = ({
   error,
   label,
   required,
-  inputClassName,
+  controlClassName,
   focusedClassName,
   children
 }) => {
@@ -28,7 +28,7 @@ export const Control: React.FC<Props> = ({
   const handleBlur = () => setFocused(false);
 
   const controlContainerClassName = cn(
-    inputClassName, 
+    controlClassName, 
     styles.controlContainer,
     focused && [styles.controlContainerFocused, focusedClassName]
   );
