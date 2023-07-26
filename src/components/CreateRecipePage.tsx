@@ -1,4 +1,4 @@
-import { Layout } from "./ui-kit/Layout/Layout";
+import { Layout } from "./Layout/Layout";
 import { RecipeForm } from "./RecipeForm/RecipeForm";
 
 export const CreateRecipePage: React.FC = () => {

@@ -1,60 +1,45 @@
-import { useState } from "react";
+import { useMemo } from "react";
+import { observer } from "mobx-react-lite";
 import styles from "./RecipeForm.module.css";
-import { Header } from "../ui-kit/Header/Header";
-import { Input } from "../ui-kit/Input/Input";
-import { Textarea } from "../ui-kit/Textarea/Textarea";
-import { Select } from "../ui-kit/Select/Select";
+import { Header } from "../Header/Header";
+import { Input } from "../form/Input/Input";
+import { Textarea } from "../form/Textarea/Textarea";
+import { Select } from "../form/Select/Select";
+import { RecipeFormLogic } from "./RecipeForm.logic";
 
-export const RecipeForm: React.FC = () => {
-  const [name, setName] = useState('');
-  const [desription, setDescription] = useState('');
-  const [protein, setProtein] = useState('');
-  const [produce, setProduce] = useState('');
-  const [spice, setSpice] = useState('');
-  const [cookingOil, setCookingOil] = useState('');
-  const [volume, setVolume] = useState('');
-  const [serves, setServes] = useState('');
-  const [stock, setStock] = useState('');
+export const RecipeForm: React.FC = observer(() => {
+  const form = useMemo(() => new RecipeFormLogic(), []);
+  const fields = form.group.fields;
 
-  const originOptions = {
-    'es': 'Spain',
-    'it': 'Italy'
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    form.submit();
   }
-  const [origin, setOrigin] = useState('');
-
-  const difficultyOptions = {
-    '0': 'Easy',
-    '1': 'Medium',
-    '2': 'Hard'
-  }
-  const [difficulty, setDifficulty] = useState(Object.keys(difficultyOptions)[0]);
-
-  const authenticityOptions = ['Verified', 'Unverified'];
-  const [authenticity, setAuthenticity] = useState(authenticityOptions[0]);
 
   return (
-    <form className={styles.container}>
+    <form className={styles.container} onSubmit={handleSubmit}>
       <Header title="Add new recipe" />
 
       <div className={styles.row}>        
         <Input
           label="Name"
-          value={name}
-          onChange={setName}
+          required
+          value={fields.name.value}
+          onChange={fields.name.setValue}
           />
 
         <Select
           label="Origin"
           placeholder="Country origin"
-          options={originOptions}
-          value={origin}
-          onChange={setOrigin}
+          options={form.options.origin}
+          value={fields.origin.value}
+          onChange={fields.origin.setValue}
           />
       </div>
 
       <Textarea 
-        value={desription}
-        onChange={setDescription}
+        value={fields.description.value}
+        onChange={fields.description.setValue}
         label="Description"
         placeholder="Describe your recipe..."
         limit={200}
@@ -63,15 +48,15 @@ export const RecipeForm: React.FC = () => {
       <div className={styles.row}>
         <Select
           label="Difficulty"
-          options={difficultyOptions}
-          value={difficulty}
-          onChange={setDifficulty}
+          options={form.options.difficulty}
+          value={fields.difficulty.value}
+          onChange={fields.difficulty.setValue}
           />
         
         <Input
           label="Protein"
-          value={protein}
-          onChange={setProtein}
+          value={fields.protein.value}
+          onChange={fields.protein.setValue}
           placeholder="Fish, Meat, Plant?"
           />
       </div>
@@ -79,28 +64,28 @@ export const RecipeForm: React.FC = () => {
       <div className={styles.row}>
         <Input
           label="Produce"
-          value={produce}
-          onChange={setProduce}
+          value={fields.produce.value}
+          onChange={fields.produce.setValue}
           placeholder="Which products?"
           />
         <Input
           label="Spices"
-          value={spice}
-          onChange={setSpice}
+          value={fields.spice.value}
+          onChange={fields.spice.setValue}
           />
       </div>
 
       <div className={styles.row}>
         <Input
           label="Cooking Oil?"
-          value={cookingOil}
-          onChange={setCookingOil}
+          value={fields.cookingOil.value}
+          onChange={fields.cookingOil.setValue}
           />
 
         <Input
           label="Volume"
-          value={volume}
-          onChange={setVolume}
+          value={fields.volume.value}
+          onChange={fields.volume.setValue}
           postfix="gramms"
           />
       </div>
@@ -108,22 +93,22 @@ export const RecipeForm: React.FC = () => {
       <div className={styles.row}>
         <Input
           label="Serves"
-          value={serves}
-          onChange={setServes}
+          value={fields.serves.value}
+          onChange={fields.serves.setValue}
           postfix="people"
           />
         <Select
           label="Authenticity"
-          options={authenticityOptions}
-          value={authenticity}
-          onChange={setAuthenticity}
+          options={form.options.authenticity}
+          value={fields.authenticity.value}
+          onChange={fields.authenticity.setValue}
           />
       </div>
 
       <Input
         label="Stock"
-        value={stock}
-        onChange={setStock}
+        value={fields.stock.value}
+        onChange={fields.stock.setValue}
         />
 
       <button type="submit" className={styles.button}>
@@ -131,5 +116,5 @@ export const RecipeForm: React.FC = () => {
       </button>
     </form>
   );
-};
+});
 
