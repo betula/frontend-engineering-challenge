@@ -19,6 +19,10 @@ export class FormControl {
     }
   }
 
+  setValue = (value: string) => {
+    this.value = value;
+  }
+
   constructor(value: string, validator?: Validator) {
     this._value = value;
     this._validator = validator;
@@ -33,9 +37,5 @@ export class FormControl {
     this.error = this._validator
       ? this._validator(this._value)
       : '';
-  }
-
-  setValue = (value: string) => {
-    this.value = value;
   }
 }

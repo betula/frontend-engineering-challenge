@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { FormGroupControl } from "../../lib/form/FormGroupControl";
 import { requiredValidator } from "../../lib/form/validator/required";
 import { numberValidator } from "../../lib/form/validator/number";
-import { recipeApi } from "../../lib/recipeApi";
+import { recipeApiService } from "../../lib/recipeApi.service";
 
 import countryOptions from "../../lib/dictionary/country.json";
 import difficultyOptions from "../../lib/dictionary/difficulty.json";
@@ -73,7 +73,7 @@ export class RecipeFormLogic {
 
     try {
       this.pending = true;
-      const response = await recipeApi.publish(request);
+      const response = await recipeApiService.publish(request);
       this.doFinish(response.message);
     }
     catch (e) {

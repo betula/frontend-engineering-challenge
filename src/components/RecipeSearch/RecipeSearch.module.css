@@ -1,0 +1,31 @@
+.container {
+  border-radius: 6px;
+  display: flex;
+  align-self: stretch;
+  background-color: #131823;
+  overflow: hidden;
+  padding: 10px;
+  font-size: 18px;
+  color: #0d1119;
+}
+
+.body {
+  overflow: hidden;
+  word-wrap: break-word;
+  display: flex;
+  flex: 1;
+  border-radius: 6px;
+  background-color: #17cfc4;
+  box-shadow: 0 10px 30px 3px rgba(5, 16, 55, 0.15);
+  flex-direction: column;
+  padding: 10px 20px;
+  gap: 16px;
+}
+.difficulty {
+  line-height: 32px;
+  font-weight: bold;
+}
+.text {
+  font-size: 16px;
+  line-height: 24px;
+}

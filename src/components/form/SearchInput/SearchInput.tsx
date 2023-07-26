@@ -1,23 +1,27 @@
-import { useState } from "react";
 import styles from "./SearchInput.module.css";
 import { Input } from "../Input/Input";
 import searchIcon from "../../../assets/general-search.svg";
 import clearIcon from "../../../assets/general-delete.svg";
 
+interface Props {
+  value: string;
+  onChange: (value: string) => void;
+}
 
-export const SearchInput: React.FC = () => {
-  const [text, setText] = useState('');
-
+export const SearchInput: React.FC<Props> = ({
+  value,
+  onChange
+}) => {
   const handleClear = () => {
-    setText('');
+    onChange('');
   }
 
   return (
     <Input
       inputClassName={styles.searchInput}
       focusedClassName={styles.searchInputFocused}
-      value={text}
-      onChange={setText}
+      value={value}
+      onChange={onChange}
       placeholder="Search cuisine"
       prefix={
         <div className={styles.searchIconContainer}>
@@ -26,7 +30,7 @@ export const SearchInput: React.FC = () => {
       }
       postfix={
         <>
-          {text ? (
+          {value ? (
               <div
                 className={styles.clearIconContainer}
                 role="button"

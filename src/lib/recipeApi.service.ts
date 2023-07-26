@@ -38,6 +38,15 @@ class RecipeApi {
     };
   }
 
+
+  // emulate search query
+  async search(query: string) {
+    const response = await fetch(this.GATEWAY);
+    const data = await response.json();
+
+    console.log(data);
+  }
+
 }
 
-export const recipeApi = new RecipeApi();
+export const recipeApiService = new RecipeApi();
