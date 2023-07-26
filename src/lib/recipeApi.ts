@@ -1,4 +1,3 @@
-
 interface RecipePublishRequest {
   name: string,
   description: string,
@@ -6,22 +5,37 @@ interface RecipePublishRequest {
   produce: string,
   spice: string,
   cookingOil: string,
-  volume: string,
-  serves: string,
+  volume: number,
+  serves: number,
   stock: string,
 
   origin: string,
-  difficulty: string,
+  difficulty: number,
   authenticity: string
 }
 
+interface RecipePublishResponse {
+  message: string;
+}
+
+
 class RecipeApi {
 
-  async publish(request: RecipePublishRequest) {
+  readonly GATEWAY = 'https://master-7rqtwti-yj2le3kr2yhmu.uk-1.platformsh.site/yumazoo/recipes';
 
-    console.log(request);
+  async publish(request: RecipePublishRequest): Promise<RecipePublishResponse> {
+    const response = await fetch(this.GATEWAY, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(request),
+    });
+    const data = await response.json();
 
-    await new Promise(r => setTimeout(r, 1500));
+    return {
+      message: data?.message || 'Server answered without message'
+    };
   }
 
 }

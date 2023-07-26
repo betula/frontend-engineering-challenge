@@ -41,9 +41,14 @@ export class RecipeFormLogic {
     })
   }
 
-  doFinish() {
-    toast.success('Recipe published');
+  doFinish(message: string) {
+    toast.success(message);
+
     history.back();
+  }
+
+  doError(message: string) {
+    toast.error(message);
   }
 
   async submit() {
@@ -54,10 +59,21 @@ export class RecipeFormLogic {
 
     const value = this.group.value;
 
+    const request = {
+      ...value,
+      difficulty: parseInt(value.difficulty),
+      volume: parseInt(value.volume) || 0,
+      serves: parseInt(value.serves) || 0,
+    }
+
     try {
       this.pending = true;
-      await recipeApi.publish(value);
-      this.doFinish();
+      const response = await recipeApi.publish(request);
+      this.doFinish(response.message);
+    }
+    catch (e) {
+      console.error(e);
+      this.doError('Server answered with error');
     }
     finally {
       this.pending = false;
