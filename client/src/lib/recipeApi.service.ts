@@ -15,10 +15,6 @@ class RecipeApi {
       throw new Error('Server answered with error');
     }
     const data = await response.json();
-
-    if (!data?.message) {
-      throw new Error('Server answered without message');
-    }
     return data.message;
   }
 
@@ -30,10 +26,6 @@ class RecipeApi {
       throw new Error('Server answered with error');
     }
     const data = await response.json();
-
-    if (!Array.isArray(data?.message)) {
-      throw new Error('Server answered without message');
-    }
     return data.message;
   }
 

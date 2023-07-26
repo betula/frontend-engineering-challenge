@@ -54,33 +54,21 @@ export class RecipeService {
   private async getRecipes(): Promise<Recipe[]> {
     const response = await fetch(this.gateway);
     if (response.status !== 200) {
-      throw new ServiceUnavailableException(
-        'Get recipes gateway answered with error',
-      );
-    }
-    const data = await response.json();
-    const message = data?.message;
-    if (!Array.isArray(message)) {
       throw new ServiceUnavailableException('Get recipes gateway unavailable');
     }
-    return message;
+    const data = await response.json();
+    return data.message;
   }
 
   private async getRecipesNumber(): Promise<number> {
     const response = await fetch(this.gateway + '/number');
     if (response.status !== 200) {
       throw new ServiceUnavailableException(
-        'Get recipes number gateway answered with error',
-      );
-    }
-    const data = await response.json();
-    const message = data?.message;
-    if (typeof message !== 'number') {
-      throw new ServiceUnavailableException(
         'Get recipes number gateway unavailable',
       );
     }
-    return message;
+    const data = await response.json();
+    return data.message;
   }
 
   private async postRecipe(recipe: Recipe) {
@@ -93,15 +81,9 @@ export class RecipeService {
     });
 
     if (response.status !== 201) {
-      throw new ServiceUnavailableException(
-        'Post recipe gateway answered with error',
-      );
-    }
-    const data = await response.json();
-    const message = data?.message;
-    if (!message) {
       throw new ServiceUnavailableException('Post recipe gateway unavailable');
     }
-    return message;
+    const data = await response.json();
+    return data.message;
   }
 }
