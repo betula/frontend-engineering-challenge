@@ -25,6 +25,7 @@
   font-size: inherit;
   color: inherit;
   line-height: inherit;
+  cursor: pointer;
 }
 .button:focus {
   outline: 0;

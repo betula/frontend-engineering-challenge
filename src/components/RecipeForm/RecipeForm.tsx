@@ -78,7 +78,7 @@ export const RecipeForm: React.FC = () => {
 
       <div className={styles.row}>
         <Input
-          label="Prodice"
+          label="Produce"
           value={produce}
           onChange={setProduce}
           placeholder="Which products?"
