@@ -12,7 +12,7 @@ export const Header: React.FC<Props> = ({ title }) => {
   return (
     <div className={styles.container}>
       <div className={styles.row}>
-        <button onClick={handleBack} className={styles.backButton}>
+        <button onClick={handleBack} className={styles.backButton} type="button">
           <img className={styles.backIcon} src={backIcon} />
         </button>
         <div className={styles.title}>{title}</div>

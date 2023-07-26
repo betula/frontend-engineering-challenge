@@ -1,11 +1,11 @@
 import { useState } from "react";
-import styles from "./Skeleton.module.css";
+import styles from "./RecipeForm.module.css";
 import { Header } from "../Header/Header";
 import { Input } from "../Input/Input";
 import { Textarea } from "../Textarea/Textarea";
 import { Select } from "../Select/Select";
 
-export const Skeleton: React.FC = () => {
+export const RecipeForm: React.FC = () => {
   const [name, setName] = useState('');
   const [desription, setDescription] = useState('');
   const [protein, setProtein] = useState('');
@@ -33,11 +33,10 @@ export const Skeleton: React.FC = () => {
   const [authenticity, setAuthenticity] = useState(authenticityOptions[0]);
 
   return (
-    <div className={styles.yumazzo}>
+    <form className={styles.container}>
       <Header title="Add new recipe" />
 
-      <div className={styles.textInputParent}>
-        
+      <div className={styles.row}>        
         <Input
           label="Name"
           value={name}
@@ -51,7 +50,6 @@ export const Skeleton: React.FC = () => {
           value={origin}
           onChange={setOrigin}
           />
-
       </div>
 
       <Textarea 
@@ -62,8 +60,7 @@ export const Skeleton: React.FC = () => {
         limit={200}
         />
 
-      <div className={styles.textInputParent}>
-        
+      <div className={styles.row}>
         <Select
           label="Difficulty"
           options={difficultyOptions}
@@ -78,7 +75,8 @@ export const Skeleton: React.FC = () => {
           placeholder="Fish, Meat, Plant?"
           />
       </div>
-      <div className={styles.textInputParent}>
+
+      <div className={styles.row}>
         <Input
           label="Prodice"
           value={produce}
@@ -91,7 +89,8 @@ export const Skeleton: React.FC = () => {
           onChange={setSpice}
           />
       </div>
-      <div className={styles.textInputParent}>
+
+      <div className={styles.row}>
         <Input
           label="Cooking Oil?"
           value={cookingOil}
@@ -105,7 +104,8 @@ export const Skeleton: React.FC = () => {
           postfix="gramms"
           />
       </div>
-      <div className={styles.textInputParent}>
+
+      <div className={styles.row}>
         <Input
           label="Serves"
           value={serves}
@@ -119,24 +119,17 @@ export const Skeleton: React.FC = () => {
           onChange={setAuthenticity}
           />
       </div>
-      <div className={styles.textInputWrapper}>
 
-        <Input
-          label="Stock"
-          value={stock}
-          onChange={setStock}
-          />
-
-      </div>
-      <div className={styles.button}>
-        <img
-          className={styles.generalPencil}
-          alt=""
-          src="/32--general--pencil.svg"
+      <Input
+        label="Stock"
+        value={stock}
+        onChange={setStock}
         />
-        <div className={styles.label}>Add Recipe</div>
-      </div>
-    </div>
+
+      <button type="submit" className={styles.button}>
+        Add Recipe
+      </button>
+    </form>
   );
 };
 

@@ -1,11 +1,10 @@
-// import { Layout } from "./Layout/Layout";
-import { Skeleton } from "./Skeleton/Skeleton";
+import { Layout } from "./Layout/Layout";
+import { RecipeForm } from "./RecipeForm/RecipeForm";
 
 export const CreateRecipePage: React.FC = () => {
   return (
-    <Skeleton />
-    // <Layout>
-    //   Create Recipe
-    // </Layout>
+    <Layout>
+      <RecipeForm />
+    </Layout>
   );
 };

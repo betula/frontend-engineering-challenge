@@ -36,8 +36,6 @@ export const Select: React.FC<Props> = ({
   const keys = isArray ? options : Object.keys(options);
   const hasSelected = keys.indexOf(value) !== -1;
 
-  console.log(hasSelected);
-
   return (
     <Control
       label={label}

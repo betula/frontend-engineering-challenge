@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.row {
+  align-self: stretch;
+  display: flex;
+  gap: 12px;
+}
+
+.button {
+  display: flex;
+  align-self: stretch;
+  border-radius: 6px;
+  background-color: #764af4;
+  box-sizing: border-box;
+  height: 40px;
+  flex-direction: row;
+  padding: 9px 14px 11px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  font-size: inherit;
+  color: inherit;
+  line-height: inherit;
+}
+.button:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px #b89fff, 0 0 0 1px #663cdd inset;
+}
