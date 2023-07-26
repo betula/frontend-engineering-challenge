@@ -22,6 +22,7 @@ export class RecipeService {
     const lcQuery = query.toLowerCase();
 
     return this.recipes.filter((recipe) => {
+      // search index
       const index = [
         recipe.name,
         recipe.description,
@@ -36,28 +37,70 @@ export class RecipeService {
     });
   }
 
-  private async actualizeLoadedRecipes() {
-    const quantity = await this.fetchRecipesNumber();
-    if (quantity !== this.recipes.length) {
-      this.recipes = await this.fetchRecipes();
+  async publish(recipe: Recipe) {
+    return this.postRecipe(recipe);
+  }
+
+  private async actualizeLoadedRecipes(force = false) {
+    if (!force) {
+      const quantity = await this.getRecipesNumber();
+      force = quantity !== this.recipes.length;
+    }
+    if (force) {
+      this.recipes = await this.getRecipes();
     }
   }
 
-  private async fetchRecipes(): Promise<Recipe[]> {
+  private async getRecipes(): Promise<Recipe[]> {
     const response = await fetch(this.gateway);
+    if (response.status !== 200) {
+      throw new ServiceUnavailableException(
+        'Get recipes gateway answered with error',
+      );
+    }
     const data = await response.json();
     const message = data?.message;
     if (!Array.isArray(message)) {
-      throw new ServiceUnavailableException('fetch recipes');
+      throw new ServiceUnavailableException('Get recipes gateway unavailable');
     }
     return message;
   }
-  private async fetchRecipesNumber(): Promise<number> {
+
+  private async getRecipesNumber(): Promise<number> {
     const response = await fetch(this.gateway + '/number');
+    if (response.status !== 200) {
+      throw new ServiceUnavailableException(
+        'Get recipes number gateway answered with error',
+      );
+    }
     const data = await response.json();
     const message = data?.message;
     if (typeof message !== 'number') {
-      throw new ServiceUnavailableException('fetch recipes number');
+      throw new ServiceUnavailableException(
+        'Get recipes number gateway unavailable',
+      );
+    }
+    return message;
+  }
+
+  private async postRecipe(recipe: Recipe) {
+    const response = await fetch(this.gateway, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(recipe),
+    });
+
+    if (response.status !== 201) {
+      throw new ServiceUnavailableException(
+        'Post recipe gateway answered with error',
+      );
+    }
+    const data = await response.json();
+    const message = data?.message;
+    if (!message) {
+      throw new ServiceUnavailableException('Post recipe gateway unavailable');
     }
     return message;
   }

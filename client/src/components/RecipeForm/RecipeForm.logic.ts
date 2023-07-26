@@ -73,8 +73,8 @@ export class RecipeFormLogic {
 
     try {
       this.pending = true;
-      const response = await recipeApiService.publish(request);
-      this.doFinish(response.message);
+      const message = await recipeApiService.publish(request);
+      this.doFinish(message);
     }
     catch (e) {
       console.error(e);
