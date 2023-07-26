@@ -116,7 +116,8 @@ export const RecipeForm: React.FC = observer(() => {
         />
 
       <button type="submit" className={cn(styles.button, { 
-        [styles.buttonInvalid]: form.group.invalid
+        [styles.buttonInvalid]: form.group.invalid,
+        [styles.buttonAnimatedStripes]: form.pending
       })}>
         Add Recipe
       </button>
