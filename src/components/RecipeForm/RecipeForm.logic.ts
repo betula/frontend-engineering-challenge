@@ -46,16 +46,21 @@ export class RecipeFormLogic {
 
     history.back();
   }
-
   doError(message: string) {
     toast.error(message);
+  }
+  doInvalid() {
+    toast.error('Not all form fields filled correctly');
   }
 
   async submit() {
     if (this.pending) return;
 
     this.group.validate();
-    if (this.group.invalid) return;
+    if (this.group.invalid) {
+      this.doInvalid();
+      return;
+    }
 
     const value = this.group.value;
 
