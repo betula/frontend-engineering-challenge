@@ -1,9 +1,9 @@
 import { useState } from "react";
 import styles from "./RecipeForm.module.css";
-import { Header } from "../Header/Header";
-import { Input } from "../Input/Input";
-import { Textarea } from "../Textarea/Textarea";
-import { Select } from "../Select/Select";
+import { Header } from "../ui-kit/Header/Header";
+import { Input } from "../ui-kit/Input/Input";
+import { Textarea } from "../ui-kit/Textarea/Textarea";
+import { Select } from "../ui-kit/Select/Select";
 
 export const RecipeForm: React.FC = () => {
   const [name, setName] = useState('');

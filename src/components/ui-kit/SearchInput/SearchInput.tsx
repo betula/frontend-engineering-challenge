@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styles from "./SearchInput.module.css";
 import { Input } from "../Input/Input";
-import searchIcon from "../../assets/general-search.svg";
-import clearIcon from "../../assets/general-delete.svg";
+import searchIcon from "../../../assets/general-search.svg";
+import clearIcon from "../../../assets/general-delete.svg";
 
 
 export const SearchInput: React.FC = () => {
