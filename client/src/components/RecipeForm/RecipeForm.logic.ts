@@ -8,6 +8,8 @@ import { recipeApiService } from "../../lib/recipeApi.service";
 import countryOptions from "../../lib/dictionary/country.json";
 import difficultyOptions from "../../lib/dictionary/difficulty.json";
 import authenticityOptions from "../../lib/dictionary/authenticity.json";
+import { Recipe } from "../../lib/recipe.interface";
+import { currentRecipeService } from "../../lib/currentRecipe.service";
 
 export class RecipeFormLogic {
 
@@ -41,8 +43,9 @@ export class RecipeFormLogic {
     })
   }
 
-  doFinish(message: string) {
+  doFinish(recipe: Recipe, message: string) {
     toast.success(message);
+    currentRecipeService.recipe = recipe;
 
     history.back();
   }
@@ -64,7 +67,7 @@ export class RecipeFormLogic {
 
     const value = this.group.value;
 
-    const request = {
+    const recipe: Recipe = {
       ...value,
       difficulty: parseInt(value.difficulty),
       volume: parseInt(value.volume) || 0,
@@ -73,8 +76,8 @@ export class RecipeFormLogic {
 
     try {
       this.pending = true;
-      const message = await recipeApiService.publish(request);
-      this.doFinish(message);
+      const message = await recipeApiService.publish(recipe);
+      this.doFinish(recipe, message);
     }
     catch (e) {
       console.error(e);

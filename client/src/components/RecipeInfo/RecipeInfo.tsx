@@ -1,16 +1,29 @@
+import cn from "classnames";
+import { Recipe } from "../../lib/recipe.interface";
+import { recipeDifficultyLabel } from "../../lib/utils/recipeDifficultyLabel";
 import styles from "./RecipeInfo.module.css";
 
-export const RecipeInfo: React.FC = () => {
+interface Props {
+  recipe?: Recipe;
+}
+
+export const RecipeInfo: React.FC<Props> = ({ recipe }) => {
+  if (!recipe) {
+    return null;
+  }
+
   return (
     <div className={styles.container}>
-      <div className={styles.body}>
+      <div className={cn(styles.body, {
+        [styles.bodyDifficultyEasy]: recipe.difficulty === 0,
+        [styles.bodyDifficultyMedium]: recipe.difficulty === 1,
+        [styles.bodyDifficultyHard]: recipe.difficulty === 2,
+      })}>
         <div className={styles.difficulty}>
-          Difficulty: Medium
+          Difficulty: {recipeDifficultyLabel(recipe.difficulty)}
         </div>
         <div className={styles.text}>
-          Spanish paella is a traditional rice dish that originated in the
-          Valencia region of Spain. It was originally made with ingredients
-          such as saffron, rabbit, and snails, which were common in the area.
+          {recipe.description}
         </div>
       </div>
     </div>

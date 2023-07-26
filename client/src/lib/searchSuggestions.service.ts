@@ -1,7 +1,7 @@
 import { makeObservable, observable } from "mobx";
 import { recipeApiService } from "./recipeApi.service";
 
-class SearchSuggestions {
+class SearchSuggestionsService {
   _search = '';
 
   get search() {
@@ -24,4 +24,4 @@ class SearchSuggestions {
   }
 }
 
-export const searchSuggestionsService = new SearchSuggestions();
+export const searchSuggestionsService = new SearchSuggestionsService();

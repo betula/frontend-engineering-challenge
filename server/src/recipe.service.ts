@@ -38,7 +38,9 @@ export class RecipeService {
   }
 
   async publish(recipe: Recipe) {
-    return this.postRecipe(recipe);
+    const response = await this.postRecipe(recipe);
+    this.actualizeLoadedRecipes(true);
+    return response;
   }
 
   private async actualizeLoadedRecipes(force = false) {
