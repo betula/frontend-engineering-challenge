@@ -52,7 +52,11 @@ export const Input: React.FC<Props> = ({
             placeholder={placeholder}
           />
 
-          {postfix || null}
+          {postfix ? (
+            <div className={styles.postfixContainer}>
+              {postfix}
+            </div>
+          ) : null}
         </div>
       )}
     </Control>

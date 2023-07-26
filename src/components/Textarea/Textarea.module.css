@@ -1,14 +1,11 @@
 
-.inputContainer {
+.textareaContainer {
   display: flex;
-  padding: 8px 11px;
   line-height: 24px;
-  height: 24px;
-  align-items: center;
-  gap: 10px;
   color: white;
+  padding: 2px;
 }
-.input {
+.textarea {
   display: flex;
   flex-grow: 1;
   background-color: inherit;
@@ -19,18 +16,19 @@
   border: 0;
   padding: 0;
   width: 100%;
+  padding: 6px 9px;
+  min-height: 56px;
 }
-.input::placeholder {
+.textarea::placeholder {
   color: #7185aa;
   opacity: 1;
 }
-.input:focus {
+.textarea:focus {
   outline: 0;
 }
 
-.postfixContainer {
-  display: flex;
+.limitContainer {
+  line-height: 24px;
   font-size: 14px;
-  font-weight: 300;
-  color: #e9eaf6;
+  color: #43495e;
 }
