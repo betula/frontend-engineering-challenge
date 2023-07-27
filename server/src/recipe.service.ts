@@ -87,7 +87,6 @@ export class RecipeService {
   }
 
   private async postRecipe(recipe: Recipe) {
-    console.log(recipe);
     const response = await fetch(this.gateway, {
       method: 'POST',
       headers: {

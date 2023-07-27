@@ -11,16 +11,46 @@ interface Props {
   recipe?: Recipe;
 }
 
+const openSharePopup = (url: string) => {
+  window.open(
+    url,
+    '_blank',
+    'width=600,height=400,popup,center,left=300,top=200'
+  );
+}
+
 export const RecipeHeader: React.FC<Props> = ({ recipe }) => {
 
+  const makeShareText = () => {
+    if (!recipe) return '';
+
+    return [
+      recipe.name,
+      recipe.description,
+      'protein: ' + recipe.protein,
+      'produce: ' + recipe.produce,
+      'spices: ' + recipe.spice
+    ].join('\n');
+  };
+
+  const shareTo = (gateway: string) => {
+    openSharePopup(
+      gateway 
+        + encodeURIComponent(makeShareText())
+    );
+  }
+
   const handleTwitterButton = () => {
-    console.log('twitter click');
+    shareTo('https://twitter.com/intent/tweet?text=');
   }
   const handleTelegramButton = () => {
-    console.log('telegram click');
+    shareTo('https://t.me/share/url?url=');
   }
   const handleMediumButton = () => {
-    console.log('medium click');
+    window.open(
+      'https://medium.com/new-story',
+      '_blank'
+    );
   }
 
   return (
