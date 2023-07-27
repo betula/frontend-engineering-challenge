@@ -6,6 +6,7 @@ import iconTelegram from '../../assets/brand-telegram.svg';
 import iconMedium from '../../assets/brand-medium.svg';
 import { Link } from "react-router-dom";
 import { Recipe } from "../../lib/recipe.interface";
+import { recipeDifficultyLabel } from "../../lib/utils/recipeDifficultyLabel";
 
 interface Props {
   recipe?: Recipe;
@@ -27,10 +28,11 @@ export const RecipeHeader: React.FC<Props> = ({ recipe }) => {
     return [
       recipe.name,
       recipe.description,
-      'protein: ' + recipe.protein,
-      'produce: ' + recipe.produce,
-      'spices: ' + recipe.spice
-    ].join('\n');
+      'difficulty: ' + recipeDifficultyLabel(recipe.difficulty),
+      recipe.protein && 'protein: ' + recipe.protein,
+      recipe.produce && 'produce: ' + recipe.produce,
+      recipe.spice && 'spices: ' + recipe.spice
+    ].filter(row => row).join('\n');
   };
 
   const shareTo = (gateway: string) => {
