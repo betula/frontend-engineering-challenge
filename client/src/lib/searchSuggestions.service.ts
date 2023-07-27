@@ -1,10 +1,15 @@
 import { makeObservable, observable } from "mobx";
-// import debounce from "lodash/debounce";
+import debounce from "lodash/debounce";
 import { recipeApiService } from "./recipeApi.service";
 import { Recipe } from "./recipe.interface";
 import { currentRecipeService } from "./currentRecipe.service";
 
+const WAIT_TIME = 250;
+const MAX_WAIT_TIME = 300;
+
 class SearchSuggestionsService {
+  private stopped = false;
+
   _search = '';
 
   get search() {
@@ -13,7 +18,13 @@ class SearchSuggestionsService {
   set search(value: string) {
     this._search = value;
 
-    this.load();
+    if (!value) {
+      this.clear();
+    }
+    else {
+      this.stopped = false;
+      this.debouncedLoad();
+    }
   }
 
   suggestions: Recipe[] = [];
@@ -32,6 +43,8 @@ class SearchSuggestionsService {
   clear() {
     this._search = '';
     this.suggestions = [];
+    this.debouncedLoad.cancel();
+    this.stopped = true;
   }
 
   pick(recipe: Recipe) {
@@ -39,9 +52,18 @@ class SearchSuggestionsService {
     currentRecipeService.recipe = recipe;
   }
 
+  debouncedLoad = debounce(
+    () => this.load(),
+    WAIT_TIME,
+    { maxWait: MAX_WAIT_TIME }
+  )
+
   private async load() {
     try {
-      this.suggestions = await recipeApiService.search(this.search);
+      const suggestions = await recipeApiService.search(this.search);
+      if (!this.stopped) {
+        this.suggestions = suggestions;
+      }
     }
     catch { /* empty */ }
   }
