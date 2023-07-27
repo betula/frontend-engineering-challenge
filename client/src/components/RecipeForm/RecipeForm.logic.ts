@@ -10,7 +10,6 @@ import difficultyOptions from "../../lib/dictionary/difficulty.json";
 import authenticityOptions from "../../lib/dictionary/authenticity.json";
 import { Recipe } from "../../lib/recipe.interface";
 import { currentRecipeService } from "../../lib/currentRecipe.service";
-import { maxLengthValidator } from "../../lib/form/validator/maxLength";
 import { ValidatorErrors } from "../../lib/form/ValidatorErrors";
 
 export class RecipeFormLogic {

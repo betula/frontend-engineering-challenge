@@ -1,9 +1,9 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createHashRouter } from "react-router-dom";
 import { HomePage } from "./components/HomePage";
 import { CreateRecipePage } from "./components/CreateRecipePage";
 import { ToastContainer } from "react-toastify";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <HomePage />,

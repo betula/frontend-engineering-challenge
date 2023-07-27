@@ -1,0 +1,16 @@
+{
+  "name": "Yum",
+  "version": "1.0.0",
+  "description": "Looking for your favorite recipes",
+  "manifest_version": 3,
+  "author": "Slava Bereza",
+  "action":{
+      "default_popup": "index.html",
+      "default_title": "Yum"
+  },
+  "icons": {
+    "32": "32x32.png",
+    "128": "128x128.png",
+    "256": "128x128@2x.png"
+  }
+}
