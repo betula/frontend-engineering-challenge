@@ -29,12 +29,12 @@ export class RecipeService {
       // search index
       const index = [
         recipe.name,
-        recipe.description,
-        recipe.protein,
-        recipe.produce,
-        recipe.spice,
-        recipe.cookingOil,
-        recipe.stock,
+        // recipe.description,
+        // recipe.protein,
+        // recipe.produce,
+        // recipe.spice,
+        // recipe.cookingOil,
+        // recipe.stock,
       ];
 
       return index.some((field) => field.toLowerCase().indexOf(lcQuery) !== -1);

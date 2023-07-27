@@ -1,5 +1,8 @@
 import { makeObservable, observable } from "mobx";
+import debounce from "lodash/debounce";
 import { recipeApiService } from "./recipeApi.service";
+import { Recipe } from "./recipe.interface";
+import { currentRecipeService } from "./currentRecipe.service";
 
 class SearchSuggestionsService {
   _search = '';
@@ -10,8 +13,10 @@ class SearchSuggestionsService {
   set search(value: string) {
     this._search = value;
 
-    recipeApiService.search(this.search);
+    this.load();
   }
+
+  suggestions: Recipe[] = [];
 
   setSearch = (value: string) => {
     this.search = value;
@@ -19,8 +24,26 @@ class SearchSuggestionsService {
 
   constructor() {
     makeObservable(this, {
-      _search: observable.ref
+      _search: observable.ref,
+      suggestions: observable.ref,
     });
+  }
+
+  clear() {
+    this._search = '';
+    this.suggestions = [];
+  }
+
+  pick(recipe: Recipe) {
+    this.clear();
+    currentRecipeService.recipe = recipe;
+  }
+
+  private async load() {
+    try {
+      this.suggestions = await recipeApiService.search(this.search);
+    }
+    catch { /* empty */ }
   }
 }
 
