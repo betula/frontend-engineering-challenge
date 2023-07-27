@@ -38,6 +38,7 @@ To simplify the code of the assignment test (because it's not used for productio
 - I did not use UI preloader indicators, according to simplify code, and they are not exists them in Figma design
 - I did not implement accessibility
 - I did not cover the code with unit tests due to the short implementation time.
+- I didn't worry about clean commits, which I don't allow in production code.
 - I didn't add support for arrow navigation on search autosuggestions, but implemented tab navigation throughout the project.
 - Pure markup verified on Chrome, Safari and Firefox
 
